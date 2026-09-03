@@ -1,0 +1,17 @@
+const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://sitemaps.org">
+   <url>
+      <loc>https://tudominio.com</loc>
+      <lastmod>2026-09-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
+</urlset>`;
+
+const blob = new Blob([xmlContent], {type: 'application/xml'});
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = 'sitemap.xml';
+a.click();
+URL.revokeObjectURL(url);
